@@ -74,7 +74,7 @@ def test_readable_function():
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
 
-def readable_fuction(func_name, **kwargs):
+def readable_function(func_name, **kwargs):
     formatted_name = func_name.replace('_', ' ').title()
     args_names = ', '.join(map(str, kwargs.values()))
     return f'{formatted_name} [{args_names}]'
