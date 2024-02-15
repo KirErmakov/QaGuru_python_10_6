@@ -74,18 +74,18 @@ def test_readable_function():
     find_registration_button_on_login_page(page_url="https://companyname.com/login", button_text="Register")
 
 
-def readable_function(func, **kwargs):
+def readable_function(func, *args, **kwargs):
     formatted_name = func.__name__.replace('_', ' ').title()
-    args_names = ', '.join(map(str, kwargs.values()))
+    args_names = ', '.join([*args, *kwargs.values()])
     return f'{formatted_name} [{args_names}]'
 
 def open_browser(browser_name):
-    actual_result = readable_function(open_browser, browser_name=browser_name)
+    actual_result = readable_function(open_browser, browser_name)
     assert actual_result == "Open Browser [Chrome]"
 
 
 def go_to_companyname_homepage(page_url):
-    actual_result = readable_function(go_to_companyname_homepage, page_url=page_url)
+    actual_result = readable_function(go_to_companyname_homepage,page_url)
     assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
 
 
